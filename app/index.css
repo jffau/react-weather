@@ -12,3 +12,44 @@ ul {
   padding: 0;
   font-weight: normal;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+/* nav */
+
+.nav {
+  flex-wrap: wrap;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+.nav li {
+  margin-right: 2rem;
+  background-color: yellow;
+  padding: 5px 10px;
+}
