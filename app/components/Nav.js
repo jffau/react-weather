@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
 import { LocationContext } from "../contexts/locations";
 const Nav = () => {
-  const { locations } = useContext(LocationContext);
+  const { locations, clearLocations } = useContext(LocationContext);
 
-  const clearLocations = () => {
-    setLocations([]);
-  };
   return (
     <nav className="row space-between">
       <ul className="row nav space-around">
