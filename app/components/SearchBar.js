@@ -32,10 +32,21 @@ const SearchBar = () => {
   };
 
   const handlePlaceSelect = async () => {
-    let addressObject = await autocomplete.current.getPlace();
-    console.log(addressObject.formatted_address);
-    console.log(addressObject.geometry.location.lat());
-    console.log(addressObject.geometry.location.lng());
+    const addressObject = await autocomplete.current.getPlace();
+
+    const { formatted_address, place_id } = addressObject;
+    const lat = addressObject.geometry.location.lat();
+    const lng = addressObject.geometry.location.lng();
+
+    const place = formatted_address
+      .split(",")
+      .slice(0, 2)
+      .join(",");
+
+    const location = { id: place_id, name: place, lat, lng };
+
+    addLocation(location);
+    setInput("");
   };
 
   return (
