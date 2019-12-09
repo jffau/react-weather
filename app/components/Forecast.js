@@ -15,7 +15,6 @@ const Forecast = ({ timezone, weather }) => {
 
   return weather.slice(1, 4).map(day => {
     const { time, summary, icon, temperatureHigh, temperatureLow } = day;
-    console.log(day);
     return (
       <div key={time}>
         <h1>Weekday: {getWeekday(time)}</h1>

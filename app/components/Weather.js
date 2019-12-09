@@ -15,7 +15,6 @@ const Weather = props => {
   useEffect(() => {
     setLoading(true);
     const { lng, lat } = queryString.parse(props.location.search);
-    console.log(props.location);
     fetch(`${cors}${darksky}${lat},${lng}`)
       .then(res => res.json())
       .then(data => {

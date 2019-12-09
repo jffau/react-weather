@@ -24,6 +24,11 @@ const Nav = props => {
     props.history.push("/");
   };
 
+  const handleClear = () => {
+    clearLocations();
+    props.history.push("/");
+  };
+
   return (
     <nav className="row space-between">
       <ul className="row nav space-between">
@@ -44,7 +49,7 @@ const Nav = props => {
         ))}
       </ul>
       {locations.length > 0 && (
-        <button onClick={clearLocations}>Clear Locations </button>
+        <button onClick={handleClear}>Clear Locations </button>
       )}
     </nav>
   );
