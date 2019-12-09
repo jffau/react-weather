@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { LocationContext } from "../contexts/locations";
-const Nav = () => {
-  const { locations, clearLocations, addLocation } = useContext(
+const Nav = props => {
+  const { locations, clearLocations, addLocation, removeLocation } = useContext(
     LocationContext
   );
 
@@ -19,21 +19,28 @@ const Nav = () => {
     localStorage.setItem("locations", JSON.stringify(locations));
   });
 
+  const handleRemove = id => {
+    removeLocation(id);
+    props.history.push("/");
+  };
+
   return (
     <nav className="row space-between">
       <ul className="row nav space-between">
         <Link to="/">Search</Link>
         {locations.map(location => (
-          <Link
-            key={location.id}
-            to={{
-              pathname: "/weather",
-              search: `?lng=${location.lng}&lat=${location.lat}&name=${location.name}`
-            }}
-          >
-            {" "}
-            {location.name}{" "}
-          </Link>
+          <div key={location.id}>
+            <Link
+              to={{
+                pathname: "/weather",
+                search: `?lng=${location.lng}&lat=${location.lat}&name=${location.name}`
+              }}
+            >
+              {" "}
+              {location.name}{" "}
+            </Link>
+            <button onClick={() => handleRemove(location.id)}>Remove</button>
+          </div>
         ))}
       </ul>
       {locations.length > 0 && (
@@ -43,4 +50,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default withRouter(Nav);

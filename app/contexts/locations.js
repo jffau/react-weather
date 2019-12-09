@@ -16,12 +16,17 @@ export const LocationProvider = ({ children }) => {
     setLocations([]);
   };
 
+  const removeLocation = id => {
+    setLocations(locations => locations.filter(location => location.id !== id));
+  };
+
   return (
     <LocationContext.Provider
       value={{
         locations,
         addLocation,
-        clearLocations
+        clearLocations,
+        removeLocation
       }}
     >
       {children}
