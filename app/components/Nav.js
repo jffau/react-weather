@@ -1,8 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LocationContext } from "../contexts/locations";
 const Nav = () => {
-  const { locations, clearLocations } = useContext(LocationContext);
+  const { locations, clearLocations, addLocation } = useContext(
+    LocationContext
+  );
+
+  // reads localStorage on load
+  useEffect(() => {
+    const data = localStorage.getItem("state");
+    if (data) {
+      addLocation(JSON.parse(data));
+    }
+  }, []);
+
+  // saves to localStorage on change
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(locations));
+  });
 
   return (
     <nav className="row space-between">
