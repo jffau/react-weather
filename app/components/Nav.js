@@ -8,7 +8,7 @@ const Nav = () => {
 
   // reads localStorage on load
   useEffect(() => {
-    const data = localStorage.getItem("state");
+    const data = localStorage.getItem("locations");
     if (data) {
       addLocation(JSON.parse(data));
     }
@@ -16,7 +16,7 @@ const Nav = () => {
 
   // saves to localStorage on change
   useEffect(() => {
-    localStorage.setItem("state", JSON.stringify(locations));
+    localStorage.setItem("locations", JSON.stringify(locations));
   });
 
   return (
