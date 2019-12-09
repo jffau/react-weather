@@ -1,18 +1,12 @@
 import React, { useState, useContext, useRef } from "react";
 import Script from "react-load-script";
-
 import { LocationContext } from "../contexts/locations";
 
-const SearchBar = () => {
+const SearchBar = props => {
   const [input, setInput] = useState("");
 
   const { addLocation } = useContext(LocationContext);
   const autocomplete = useRef();
-
-  const handleSubmit = () => {
-    addLocation(input);
-    setInput("");
-  };
 
   const handleScript = () => {
     let options = {
@@ -46,7 +40,11 @@ const SearchBar = () => {
     const location = { id: place_id, name: place, lat, lng };
 
     addLocation(location);
+
     setInput("");
+    props.history.push(
+      `weather?lng=${location.lng}&lat=${location.lat}&name=${location.name}`
+    );
   };
 
   return (
@@ -63,7 +61,6 @@ const SearchBar = () => {
         value={input}
         onChange={e => setInput(e.target.value)}
       />
-      <button onClick={handleSubmit}> submit </button>
     </div>
   );
 };
