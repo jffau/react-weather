@@ -10,15 +10,15 @@ import { LocationProvider } from "./contexts/locations";
 function App() {
   return (
     <Router>
-      <div className="container">
-        <LocationProvider>
-          <Nav />
+      <LocationProvider>
+        <Nav />
+        <div className="content">
           <Switch>
             <Route exact path="/" component={SearchBar} />
             <Route path="/weather" component={Weather} />
           </Switch>
-        </LocationProvider>
-      </div>
+        </div>
+      </LocationProvider>
     </Router>
   );
 }
