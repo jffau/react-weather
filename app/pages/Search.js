@@ -2,10 +2,10 @@ import React from "react";
 import SearchBar from "../components/SearchBar";
 import styled from "styled-components";
 
-const Search = () => {
+const Search = ({ history }) => {
   return (
     <SearchContainer>
-      <SearchBar />
+      <SearchBar history={history} />
     </SearchContainer>
   );
 };
