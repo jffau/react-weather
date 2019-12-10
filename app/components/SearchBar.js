@@ -2,6 +2,8 @@ import React, { useState, useContext, useRef } from "react";
 import Script from "react-load-script";
 import { LocationContext } from "../contexts/locations";
 
+import "../styles/search.css";
+
 const SearchBar = props => {
   const [input, setInput] = useState("");
 
@@ -48,7 +50,7 @@ const SearchBar = props => {
   };
 
   return (
-    <div>
+    <div className="searchBar">
       <Script
         url={`https://maps.googleapis.com/maps/api/js?key=${"AIzaSyDIiMlJk5jdhP-kOEDJcNEDeMoyGBszRWA"}&libraries=places`}
         onLoad={handleScript}
@@ -57,9 +59,10 @@ const SearchBar = props => {
       <input
         type="text"
         id="autocomplete"
-        placeholder="input location"
+        placeholder="Enter a city or zip-code:"
         value={input}
         onChange={e => setInput(e.target.value)}
+        className="inputBar"
       />
     </div>
   );
