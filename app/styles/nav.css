@@ -40,8 +40,9 @@ li {
 }
 
 .location-links {
+  font-size: 1.3em;
   text-decoration: none;
-  color: #222222;
+  color: #202020;
   line-height: 2em;
 }
 
@@ -64,9 +65,10 @@ li {
 
   .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding-right: 35%;
     padding-left: 2rem;
-    padding-right: 5rem;
   }
 
   .closed.sidebar {

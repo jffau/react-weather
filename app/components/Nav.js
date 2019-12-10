@@ -5,6 +5,7 @@ import { LocationContext } from "../contexts/locations";
 import { FaBars, FaTimes, FaSearch, FaMapMarkerAlt } from "react-icons/fa";
 
 import "../styles/nav.css";
+import SearchBar from "./SearchBar";
 
 const Nav = props => {
   const { locations, clearLocations, addLocation, removeLocation } = useContext(

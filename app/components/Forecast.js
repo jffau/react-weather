@@ -13,20 +13,26 @@ const Forecast = ({ timezone, weather }) => {
     return `${dateString.getMonth() + 1}/${dateString.getDate()}`;
   };
 
-  return weather.slice(1, 4).map(day => {
-    const { time, summary, icon, temperatureHigh, temperatureLow } = day;
-    return (
-      <div key={time}>
-        <h1>Weekday: {getWeekday(time)}</h1>
-        <h1>Date: {getDate(time)}</h1>
-        <h1>Summary: {summary}</h1>
-        <h1>Icons: {icon}</h1>
-        <h1>Temp High: {Math.floor(temperatureHigh)} F</h1>
-        <h1>Temp Low: {Math.floor(temperatureLow)} F</h1>
-        <hr></hr>
-      </div>
-    );
-  });
+  return (
+    <div className="forecast-container">
+      {weather.slice(1, 4).map(day => {
+        const { time, summary, icon, temperatureHigh, temperatureLow } = day;
+        return (
+          <div key={time} className="daily-forecast">
+            <span className="forecast-date">
+              {getWeekday(time)}, {getDate(time)}
+            </span>
+            <div className="high-low">
+              <span>High: {Math.floor(temperatureHigh)}˚ F</span>
+              <span>Low: {Math.floor(temperatureLow)}˚ F</span>
+            </div>
+            <span className="forecast-summary"> {summary}</span>
+            {/* <h1>Icons: {icon}</h1> */}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 Forecast.propTypes = {
   timezone: PropTypes.string.isRequired,

@@ -1,0 +1,12 @@
+.searchBar {
+  text-align: center;
+  padding: 20px 0 150px 0;
+}
+
+.inputBar {
+  text-align: center;
+  font-size: 30px;
+  width: 350px;
+  border-radius: 15px;
+  padding: 10px;
+}

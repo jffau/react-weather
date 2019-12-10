@@ -10,13 +10,15 @@ const Current = ({ timezone, weather, name }) => {
   currentTime = currentTime.toLocaleString("en-US", timezone);
 
   return (
-    <div>
-      Currently:
-      <h1> {location}</h1>
-      <h1>Time: {currentTime}</h1>
-      <h1>Summary: {summary} </h1>
-      <h1>Icons: {icon}</h1>
-      <h1>Temp: {Math.floor(temperature)} F</h1>
+    <div className="currently">
+      <span className="current-location">{location}</span>
+      <h3>{currentTime}</h3>
+
+      <span className="summary">
+        {Math.floor(temperature)}˚ F, {summary}{" "}
+      </span>
+
+      {/* <h1>Icons: {icon}</h1> */}
     </div>
   );
 };
