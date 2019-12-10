@@ -61,6 +61,7 @@ const Nav = props => {
           </li>
         </ul>
       </nav>
+
       <div className={`sidebar ${sideBar}`}>
         <ul className="header">
           <li onClick={onHamburgClicked} className="close-hamburger">
@@ -70,7 +71,7 @@ const Nav = props => {
             <h2> Clutch Weather</h2>
           </li>
         </ul>
-        <ul>
+        <ul className="nav-content">
           <li>
             <Link className="btn" to="/" onClick={onSideBarClicked}>
               <FaSearch /> Search

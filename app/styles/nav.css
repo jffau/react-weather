@@ -12,6 +12,10 @@
   text-align: center;
 }
 
+.nav-content {
+  margin-top: 150px;
+}
+
 li {
   list-style-type: none;
   margin: 2rem 0;
@@ -43,7 +47,7 @@ li {
   font-size: 1.3em;
   text-decoration: none;
   color: #202020;
-  line-height: 2em;
+  line-height: 2.5em;
 }
 
 .location-links:hover {
