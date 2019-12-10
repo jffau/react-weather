@@ -38,6 +38,7 @@ const Weather = props => {
         <SearchBar history={props.history} />
         <Current timezone={timezone} weather={currently} name={name} />
         <Forecast timezone={timezone} weather={daily.data} />
+        {error && <h1>Error fetching data: {error.message}</h1>}
       </div>
     );
   } else
