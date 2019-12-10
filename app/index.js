@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import SearchBar from "./components/SearchBar";
 import Search from "./pages/Search";
 import Weather from "./pages/Weather";
 import Nav from "./components/Nav";
