@@ -1,6 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { LocationContext } from "../contexts/locations";
+
+import { FaBars, FaTimes, FaSearch, FaMapMarkerAlt } from "react-icons/fa";
+
+import "../styles/nav.css";
+
 const Nav = props => {
   const { locations, clearLocations, addLocation, removeLocation } = useContext(
     LocationContext
@@ -46,38 +51,56 @@ const Nav = props => {
   return (
     <>
       <nav className={`topbar ${sideBar}`}>
-        <ul>
-          <li onClick={onHamburgClicked}>Hamburger</li>
+        <ul className="header">
+          <li onClick={onHamburgClicked}>
+            <FaBars />
+          </li>
+          <li>
+            <h2>Clutch Weather</h2>
+          </li>
         </ul>
       </nav>
       <div className={`sidebar ${sideBar}`}>
-        <ul>
+        <ul className="header">
           <li onClick={onHamburgClicked} className="close-hamburger">
-            close hamburg
+            <FaTimes />
           </li>
-
           <li>
-            <Link to="/" onClick={onSideBarClicked}>
-              Search
+            <h2> Clutch Weather</h2>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link className="btn" to="/" onClick={onSideBarClicked}>
+              <FaSearch /> Search
             </Link>
           </li>
           {locations.map(location => (
             <li key={location.id} onClick={onSideBarClicked}>
               <Link
+                className="location-links"
                 to={{
                   pathname: "/weather",
                   search: `?lng=${location.lng}&lat=${location.lat}&name=${location.name}`
                 }}
               >
-                {" "}
-                {location.name}{" "}
+                <FaMapMarkerAlt />
+
+                {location.name}
               </Link>
-              <button onClick={() => handleRemove(location.id)}>Remove</button>
+              {/* <button> */}
+              <FaTimes
+                color="#861927"
+                onClick={() => handleRemove(location.id)}
+              />
+              {/* </button>s */}
             </li>
           ))}
           {locations.length > 0 && (
             <li onClick={onSideBarClicked}>
-              <button onClick={handleClear}>Clear Locations </button>
+              <span className="btn" onClick={handleClear}>
+                Clear Locations{" "}
+              </span>
             </li>
           )}
         </ul>
