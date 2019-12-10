@@ -7,7 +7,7 @@ import "../styles/search.css";
 const SearchBar = props => {
   const [input, setInput] = useState("");
 
-  const { addLocation } = useContext(LocationContext);
+  const { addLocation, locations } = useContext(LocationContext);
   const autocomplete = useRef();
 
   const handleScript = () => {
@@ -40,8 +40,10 @@ const SearchBar = props => {
       .join(",");
 
     const location = { id: place_id, name: place, lat, lng };
-
-    addLocation(location);
+    const existingId = locations.map(item => item.id);
+    if (existingId.indexOf(place_id) === -1) {
+      addLocation(location);
+    }
 
     setInput("");
     props.history.push(
