@@ -1,14 +1,21 @@
 .weather {
   margin: 0 auto;
-  padding: 10px 10%;
+  padding: 0 10%;
   max-width: 1200px;
   line-height: 3em;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+
+.icon {
+  margin: 0 auto;
+  max-width: 150px;
+  max-height: 150px;
+}
+
 .forecast-container {
   margin-top: 100px;
   display: flex;
@@ -51,5 +58,6 @@
 @media (max-width: 1250px) {
   .daily-forecast {
     width: 100%;
+    margin-bottom: 100px;
   }
 }

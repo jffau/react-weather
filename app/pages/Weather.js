@@ -40,7 +40,12 @@ const Weather = props => {
         <Forecast timezone={timezone} weather={daily.data} />
       </div>
     );
-  } else return <h1>Loading</h1>;
+  } else
+    return (
+      <div className="weather">
+        <h1>Loading...</h1>
+      </div>
+    );
 };
 
 export default Weather;

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Skycons from "react-skycons";
 
 const Forecast = ({ timezone, weather }) => {
   const getWeekday = time => {
@@ -26,8 +27,15 @@ const Forecast = ({ timezone, weather }) => {
               <span>High: {Math.floor(temperatureHigh)}˚ F</span>
               <span>Low: {Math.floor(temperatureLow)}˚ F</span>
             </div>
+            <div className="icon">
+              <Skycons
+                color="white"
+                icon={icon.toUpperCase().replace(/-/g, "_")}
+                autoplay={true}
+                style={{ width: "100%", height: "100%" }}
+              />
+            </div>
             <span className="forecast-summary"> {summary}</span>
-            {/* <h1>Icons: {icon}</h1> */}
           </div>
         );
       })}
